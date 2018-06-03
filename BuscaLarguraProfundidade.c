@@ -265,8 +265,7 @@ void bProfVisitado(Vertice G[], int v){
     }
     G[v].cor = PRETO;
 }
-
-
+//Imprime o Grafo Inicial
 void imprimeGrafo(Vertice G[], int ordem){
     int i;
     printf("\n*** Grafo ***");
@@ -279,7 +278,7 @@ void imprimeGrafo(Vertice G[], int ordem){
     }
     printf("\n\n");
 }
-
+//Imprime a Distancia percorrida do grafo
 void imprimeGrafoDistancia(Vertice G[], int ordem){
     int i;
     printf("\n\n");
@@ -301,19 +300,6 @@ void imprimeGrafoDistancia(Vertice G[], int ordem){
     
 }
 
-void imprimeGrafoCor(Vertice G[], int ordem){
-    int i;
-    for(i=0; i<ordem; i++)
-        printf("%3d ",G[i].nome);
-    printf("\n");
-    for(i=0; i<ordem; i++)
-        printf("%3d ",G[i].dist);
-    printf("\n");
-    for(i=0; i<ordem; i++)
-        printf("%3d ",G[i].predecessor);
-    printf("\n");
-    
-}
 
 int main(int argc, char *argv[]) {
     Vertice *G;
