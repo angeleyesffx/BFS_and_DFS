@@ -1,5 +1,5 @@
 /*
-Priscilla Rodrigues Martins        
+Priscilla Rodrigues Martins        3136179-1
 */
 
 #include <stdio.h>
@@ -94,7 +94,7 @@ void criarGrafo(Vertice **G, int ordem){
         (*G)[i].prim= NULL;
     }
 }
-
+//Adicionando arestas no Grafo
 int adicionarAresta(Vertice G[], int ordem, int v1, int v2){
 	if (v1<0 || v1 >= ordem)
 	   return 0;
@@ -111,11 +111,11 @@ int adicionarAresta(Vertice G[], int ordem, int v1, int v2){
 	A2->prox= G[v2].prim;
 	G[v2].prim= A2;
 }
-
+//Calculando o tamanho do Grafo
 int calculaTamanho(Vertice G[], int ordem){
 	int i;
 	int totalArestas=0;
-	
+	//Percorrendo o Grafo criado pelo metodo criarGrafo
 	for (i=0; i<ordem; i++){
 		int j;
 		Aresta *aux= G[i].prim;
@@ -220,7 +220,7 @@ int verificaGrau(Vertice G[], int ordem){
     }
 	return 1;	   
 }
-
+//Verifica o retorno dos metodos verificaConexo e verificaGraua para determinar se o grafo é Euleriano
 int verificaEuleriano(Vertice G[], int ordem){
 	if((verificaConexo(G, ordem) == 1)&&(verificaGrau(G, ordem) == 1))
 		
@@ -248,7 +248,7 @@ void buscaProfundidade(Vertice G[], int ordem){
         }
     }
 }
- 
+//Percorre o Grafo em busca de Profundidade marcando como visitado  
 void bProfVisitado(Vertice G[], int v){
     int j;
     Aresta *aux = G[v].prim;
@@ -266,18 +266,6 @@ void bProfVisitado(Vertice G[], int v){
     G[v].cor = PRETO;
 }
 
-int calcTamanho(Vertice G[], int ordem){
-    int i;
-    int totalArestas=0;
-    
-    for (i=0; i<ordem; i++){
-        int j;
-        Aresta *aux= G[i].prim;
-        for(j=0; aux != NULL; aux= aux->prox, j++);
-        totalArestas += j;
-    }
-    return totalArestas + ordem;
-}
 
 void imprimeGrafo(Vertice G[], int ordem){
     int i;
@@ -338,7 +326,7 @@ int main(int argc, char *argv[]) {
     adicionarAresta(G,ordemG,2,3);
     adicionarAresta(G,ordemG,3,7);
     
-    printf("\nTamanho: %d\n",calcTamanho(G, ordemG));
+    printf("\nTamanho: %d\n",calculaTamanho(G, ordemG));
     
     imprimeGrafo(G, ordemG);
     buscaProfundidade(G, ordemG);
